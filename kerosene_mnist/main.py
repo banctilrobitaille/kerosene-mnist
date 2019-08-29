@@ -36,7 +36,6 @@ if __name__ == "__main__":
 
     # Train with the training strategy
     trainer = SimpleTrainer("MNIST Trainer", train_loader, test_loader, model_trainers, RunConfiguration()) \
-        .with_event_handler(console_logger, Event.ON_TRAIN_BATCH_END) \
-        .with_event_handler(console_logger, Event.ON_VALID_BATCH_END) \
+        .with_event_handler(console_logger, Event.ON_EPOCH_END) \
         .with_event_handler(visdom_logger, Event.ON_EPOCH_END, PlotAllModelStateVariables()) \
         .train(training_config.nb_epochs)
