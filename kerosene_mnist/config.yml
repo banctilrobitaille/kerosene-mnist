@@ -4,7 +4,7 @@ training:
   batch_size_valid: 10
 
 models:
-  MNIST:
+  SimpleNet:
     type: SimpleNet
     params:
     optimizer:

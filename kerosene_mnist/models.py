@@ -1,15 +1,5 @@
-from enum import Enum
-
 import torch.nn.functional as F
-from kerosene.models.models import ModelFactory
 from torch.nn import Module, Linear, Dropout2d, Conv2d
-
-
-class NetworkType(Enum):
-    SimpleNet = "SimpleNet"
-
-    def __str__(self):
-        return self.value
 
 
 class SimpleNet(Module):
@@ -29,11 +19,3 @@ class SimpleNet(Module):
         x = F.dropout(x, training=self.training)
         x = self.fc2(x)
         return x
-
-
-class SimpleModelFactory(ModelFactory):
-    def create(self, model_type, params):
-        if model_type == str(NetworkType.SimpleNet):
-            return SimpleNet()
-        else:
-            raise NotImplementedError("The provided model type: {} is not supported !".format(model_type))
