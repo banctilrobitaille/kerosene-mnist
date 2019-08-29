@@ -8,22 +8,22 @@ models:
     type: SimpleNet
     params:
     optimizer:
-      type: "SGD"
+      type: SGD
       params:
         lr: 0.001
         momentum: 0.9
         weight_decay: 0.1
     scheduler:
-      type: "ReduceLROnPlateau"
+      type: ReduceLROnPlateau
       params:
         mode: 'min'
         factor: 0.1
         patience: 3
     criterion:
-      type: "BCELoss"
+      type: CrossEntropyLoss
       params:
     metric:
-      type: "Accuracy"
+      type: Accuracy
       params:
 
 visdom:

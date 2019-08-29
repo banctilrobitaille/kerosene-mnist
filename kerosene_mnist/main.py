@@ -1,3 +1,5 @@
+import logging
+
 import torchvision
 from kerosene.config.parsers import YamlConfigurationParser
 from kerosene.config.trainers import RunConfiguration
@@ -10,9 +12,10 @@ from kerosene.training.trainers import ModelTrainerFactory, SimpleTrainer
 from torch.utils.data import DataLoader
 from torchvision.transforms import Compose, ToTensor, Normalize
 
-from kerosene_mnist.models.models import SimpleModelFactory
+from kerosene_mnist.models import SimpleModelFactory
 
 if __name__ == "__main__":
+    logging.basicConfig(level=logging.INFO)
     CONFIG_FILE_PATH = "config.yml"
 
     model_trainer_configs, training_config = YamlConfigurationParser.parse(CONFIG_FILE_PATH)
