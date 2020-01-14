@@ -6,7 +6,6 @@ training:
 models:
   SimpleNet:
     type: SimpleNet
-    params:
     optimizer:
       type: SGD
       params:
@@ -21,12 +20,10 @@ models:
         patience: 3
     criterion:
       type: CrossEntropyLoss
-      params:
-    metric:
-      type: Accuracy
-      params:
+    metrics:
+      - type: Accuracy
 
 visdom:
-  server: http://pldelisle.no-ip.info
+  server: localhost
   port: 8097
   env: "Kerosene-MNIST"
